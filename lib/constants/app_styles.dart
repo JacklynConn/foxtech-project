@@ -13,15 +13,28 @@ class AppStyles {
     return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
   }
 
-  static TextStyle regular1(
-      {double size = 16,
-        Color color = Colors.black,
-        FontWeight weight = FontWeight.normal}) {
-    return TextStyle(color: color, fontSize: size, fontWeight: weight);
+  static TextStyle regular1({
+    double size = 16,
+    Color color = Colors.black,
+    FontWeight weight = FontWeight.normal,
+    String? ellipsis,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: size,
+      fontWeight: weight,
+      overflow: TextOverflow.ellipsis,
+    );
   }
 
-  static TextStyle medium({double size = 16, Color color = Colors.black}) {
-    return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w500);
+  static TextStyle medium(
+      {double size = 16, Color color = Colors.black, String? ellipsis}) {
+    return TextStyle(
+      color: color,
+      fontSize: size,
+      fontWeight: FontWeight.w500,
+      overflow: TextOverflow.ellipsis,
+    );
   }
 
   static TextStyle bold({double size = 16, Color color = Colors.black}) {

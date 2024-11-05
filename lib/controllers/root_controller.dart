@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foxtech_project/screens/home_screen.dart';
-import 'package:foxtech_project/screens/profile_screen.dart';
-import 'package:foxtech_project/screens/search_screen.dart';
+import '../screens/more_screen.dart';
+import '/screens/home_screen.dart';
+import '/screens/profile_screen.dart';
+import '/screens/chat_screen.dart';
 import 'package:get/get.dart';
 
 class RootController extends GetxController {
@@ -9,8 +10,9 @@ class RootController extends GetxController {
 
   final List<Widget> lstScreens = [
     const HomeScreen(),
-    const SearchScreen(),
+    const ChatScreen(),
     const ProfileScreen(),
+    const MoreScreen(),
   ];
 
   void bottomNavigationTap(int index) {
