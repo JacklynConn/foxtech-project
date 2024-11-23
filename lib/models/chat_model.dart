@@ -1,88 +1,58 @@
 class ChatModel {
-  String id;
-  String name;
-  String image;
-  String lastMessage;
-  String listMessageTime;
 
   ChatModel({
-    required this.id,
     required this.name,
-    required this.image,
-    required this.lastMessage,
-    required this.listMessageTime,
   });
 
-  static List<ChatModel> chatList = [
-    ChatModel(
-      id: '1',
-      name: 'Jenny Wilson',
-      image: 'assets/images/user1.jpg',
-      lastMessage: 'How are you?',
-      listMessageTime: '5m ago',
-    ),
-    ChatModel(
-      id: '2',
-      name: 'Esther Howard',
-      image: 'assets/images/user2.jpg',
-      lastMessage: 'What are you doing?',
-      listMessageTime: '2h ago',
-    ),
-    ChatModel(
-      id: '3',
-      name: 'Catherine Rogers',
-      image: 'assets/images/user3.jpg',
-      lastMessage: 'Hello?',
-      listMessageTime: '1d ago',
-    ),
-    ChatModel(
-      id: '4',
-      name: 'Jenny Wilson',
-      image: 'assets/images/user4.jpg',
-      lastMessage: 'How are you?',
-      listMessageTime: '5m ago',
-    ),
-    ChatModel(
-      id: '5',
-      name: 'Esther Howard',
-      image: 'assets/images/user5.jpg',
-      lastMessage: 'What are you doing?',
-      listMessageTime: '2h ago',
-    ),
-    ChatModel(
-      id: '6',
-      name: 'Catherine Rogers',
-      image: 'assets/images/user6.jpg',
-      lastMessage: 'Hello?',
-      listMessageTime: '1d ago',
-    ),
-    ChatModel(
-      id: '7',
-      name: 'Jenny Wilson',
-      image: 'assets/images/user7.jpg',
-      lastMessage: 'How are you?',
-      listMessageTime: '5m ago',
-    ),
-    ChatModel(
-      id: '8',
-      name: 'Esther Howard',
-      image: 'assets/images/user8.jpg',
-      lastMessage: 'What are you doing?',
-      listMessageTime: '2h ago',
-    ),
-    ChatModel(
-      id: '9',
-      name: 'Catherine Rogers',
-      image: 'assets/images/user9.jpg',
-      lastMessage: 'Hello?',
-      listMessageTime: '1d ago',
-    ),
-    ChatModel(
-      id: '10',
-      name: 'Jenny Wilson',
-      image: 'assets/images/user10.jpg',
-      lastMessage: 'How are you?',
-      listMessageTime: '5m ago',
-    ),
-  ];
-}
+List<ChatModel> chatList = [
+  ChatModel(
+    name: "Marry Doe (☝ ՞ਊ ՞)☝",
+    message: "Hello, How are you?",
+    avatarUrl:
+        "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp",
+    isOnline: true,
+    amountChat: 5,
+    hasMention: true,
+  ),
+  ChatModel(
+    name: "Jennifer Doe",
+    message: "Hello, How are you?",
+    avatarUrl:
+        "https://th.bing.com/th/id/OIP.hCfHyL8u8XAbreXuaiTMQgHaHZ?rs=1&pid=ImgDetMain",
+    isOnline: false,
+  ),
+  ChatModel(
+    name: "Sara Doe",
+    message:
+        "Hello, How are you? (☝ ՞ਊ ՞)☝ Hello, How are you? Hello, How are you?",
+    avatarUrl:
+        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg",
+    isOnline: true,
+    amountChat: 900,
+  ),
+  ChatModel(
+    name: "Rita Doe",
+    message: "Hello, How are you?",
+    avatarUrl:
+        "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_960_720.png",
+    isOnline: false,
+    amountChat: 0,
+    hasMention: true,
+  ),
+  ChatModel(
+    name: "Cristina Doe",
+    message: "Hello, How are you?",
+    avatarUrl:
+        "https://th.bing.com/th/id/OIP.gLXt0bDpUfOqx8dGxhx8igHaFE?rs=1&pid=ImgDetMain",
+    isOnline: true,
+    amountChat: 200,
+  ),
+  ChatModel(
+    name: "Vanesa Doe",
+    message: "Hello, How are you?",
+    avatarUrl:
+        "https://cdn2.f-cdn.com/files/download/38545966/4bce6b.jpg",
+    isOnline: false,
+    amountChat: 0,
+  ),
+];
