@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: 'Password',
                         suffix: IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.remove_red_eye_outlined,
                           ),
                         ),

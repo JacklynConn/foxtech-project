@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/root_screen.dart';
+import '/common/routes/name.dart';
+import '/controllers/theme_controller.dart';
+import '/screens/themes/theme.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'common/routes/pages.dart';
+
+void main() async {
+  await GetStorage.init();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final ThemeController themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'KaKoa Talk',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const RootScreen(),
-    );
+    return Obx(() {
+      return GetMaterialApp(
+        title: 'KaKoa Talk',
+        debugShowCheckedModeBanner: false,
+        theme: AppThemes.lightTheme,
+        darkTheme: AppThemes.darkTheme,
+        themeMode: themeController.themeMode.value,
+        initialRoute: AppRoutes.INITIAL,
+        getPages: AppPages.routes,
+      );
+    });
   }
 }
