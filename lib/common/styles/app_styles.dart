@@ -25,11 +25,11 @@ class AppStyles {
     return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w500);
   }
 
-  static TextStyle bold({double size = 16, Color color = Colors.black}) {
+  static TextStyle bold({double size = 16, Color? color}) {
     return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.bold);
   }
 
-  static TextStyle appTitle({double size = 18, Color color = Colors.black}) {
+  static TextStyle appTitle({double size = 18, Color? color}) {
     return TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
   }
 

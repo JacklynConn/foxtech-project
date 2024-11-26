@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../themes/theme_screen.dart';
+
+import '../../themes/theme_screen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});

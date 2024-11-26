@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '/constants/app_strings.dart';
+import 'common/styles/app_strings.dart';
 import '/controllers/root_controller.dart';
 import 'package:get/get.dart';
 

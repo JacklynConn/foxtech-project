@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/constants/app_strings.dart';
-import 'package:foxtech_project/utilities/assets_manager.dart';
+import '../common/utilities/assets_manager.dart';
+import '/common/styles/app_strings.dart';
 import 'package:lottie/lottie.dart';
 
-import '../constants/app_styles.dart';
+import '../common/styles/app_styles.dart';
 
 class CallScreen extends StatefulWidget {
   const CallScreen({super.key});
@@ -54,15 +54,46 @@ class _CallScreenState extends State<CallScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Lottie.asset(
-            AssetsManager.chatAnimation,
+          SizedBox(
             width: 300,
-            height: 300,
+            height: 240,
+            child: Lottie.asset(
+              AssetsManager.chatAnimation,
+              fit: BoxFit.cover,
+            ),
           ),
-          const SizedBox(height: 10),
           Text(
-            'No call history',
-            style: AppStyles.appTitle(size: 18),
+            'Make calls to your friends',
+            style: AppStyles.appTitle(
+              size: 22,
+              color: Theme.of(context).primaryColorLight,
+            ),
+          ),
+          Text(
+            'You recent history will be listed here',
+            style: AppStyles.regular1(size: 16, color: Colors.grey),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xffff6f6f6),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              elevation: 0,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+                vertical: 10,
+              ),
+            ),
+            onPressed: () {},
+            child: Text(
+              'Call Now',
+              style: AppStyles.bold(
+                size: 18,
+                color: Theme.of(context).textTheme.titleSmall!.color,
+              ),
+            ),
           ),
         ],
       ),

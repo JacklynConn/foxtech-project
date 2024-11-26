@@ -15,13 +15,14 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // TODO: implement initState
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAllNamed(AppRoutes.rootScreen);
+      Get.offAllNamed(AppRoutes.loginScreen);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         alignment: Alignment.center,
         child: Column(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/app_styles.dart';
+import '../../common/styles/app_styles.dart';
 import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {

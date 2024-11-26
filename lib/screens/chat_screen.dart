@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import '/constants/app_strings.dart';
-import '/constants/app_styles.dart';
+import '../common/styles/app_strings.dart';
+import '../common/styles/app_styles.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -65,7 +65,9 @@ class ChatScreen extends StatelessWidget {
                         children: [
                           Text(
                             'John Doe',
-                            style: AppStyles.medium(size: 20),
+                            style: AppStyles.medium(
+                                size: 20,
+                                color: Theme.of(context).primaryColor),
                           ),
                           const SizedBox(height: 5),
                           Text(

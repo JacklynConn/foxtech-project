@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foxtech_project/common/styles/app_theme_color.dart';
 import '/common/routes/name.dart';
 import '/controllers/theme_controller.dart';
-import '/screens/themes/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 

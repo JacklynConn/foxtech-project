@@ -1,6 +1,7 @@
-import 'package:foxtech_project/screens/themes/theme_screen.dart';
-
+import '/screens/auth/signup_screen.dart';
 import '../../root_screen.dart';
+import '../../screens/auth/login_screen.dart';
+import '../../themes/theme_screen.dart';
 import '/common/routes/name.dart';
 import '/splash_screen.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,14 @@ class AppPages {
     GetPage(
       name: AppRoutes.themeScreen,
       page: () => ThemeScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.loginScreen,
+      page: () => const LoginScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.signUpScreen,
+      page: () => const SignupScreen(),
     ),
   ];
 }

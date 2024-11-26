@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import '/constants/app_strings.dart';
-import '/constants/app_styles.dart';
+import '../common/styles/app_strings.dart';
+import '../common/styles/app_styles.dart';
 
 class FriendScreen extends StatefulWidget {
   const FriendScreen({super.key});
@@ -58,7 +58,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     width: 70,
                     height: 70,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).highlightColor,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(25),
                       ),
@@ -77,14 +77,17 @@ class _FriendScreenState extends State<FriendScreen> {
                     ),
                     child: Icon(
                       Icons.person,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).primaryColorDark,
                       size: 30,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     AppStrings.userNames,
-                    style: AppStyles.bold(size: 18),
+                    style: AppStyles.bold(
+                      size: 18,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
                   ),
                 ],
               ),
@@ -109,13 +112,13 @@ class _FriendScreenState extends State<FriendScreen> {
                           AppStrings.profile,
                           style: AppStyles.regular1(
                             size: 16,
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).primaryColorLight,
                           ),
                         ),
                         const SizedBox(width: 5),
                         Icon(
                           Icons.add,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).primaryColorLight,
                         ),
                       ],
                     ),
@@ -173,7 +176,10 @@ class _FriendScreenState extends State<FriendScreen> {
                   const SizedBox(width: 16),
                   Text(
                     AppStrings.group,
-                    style: AppStyles.medium(size: 16),
+                    style: AppStyles.medium(
+                      size: 16,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
                   ),
                 ],
               ),
@@ -197,7 +203,9 @@ class _FriendScreenState extends State<FriendScreen> {
               Text(
                 AppStrings.friend,
                 style: AppStyles.medium(
-                    size: 18, color: Theme.of(context).primaryColor),
+                  size: 18,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
               IconButton(
                 onPressed: () {},
@@ -232,7 +240,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     ),
                     child: Icon(
                       Icons.mail,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).primaryColorDark,
                       size: 30,
                     ),
                   ),
@@ -241,6 +249,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     AppStrings.inviteFriends,
                     style: AppStyles.medium(
                       size: 16,
+                      color: Theme.of(context).primaryColorDark,
                     ),
                   ),
                 ],
