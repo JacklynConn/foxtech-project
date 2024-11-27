@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_theme_color.dart';
+import '/common/styles/app_theme_color.dart';
 import '/common/routes/name.dart';
 import '/controllers/theme_controller.dart';
 import 'package:get/get.dart';

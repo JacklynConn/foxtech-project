@@ -5,25 +5,27 @@ import 'package:get/get.dart';
 
 class TextInputWidget extends StatefulWidget {
   final String hintText;
-  final bool isEnable;
+
+  // final bool isEnable;
   final bool isPassword;
   final ValueChanged<String>? onFieldSubmitted;
   final TextInputAction? textInputAction;
   final FocusNode? focusNode;
   final TextEditingController controller;
   final TextInputType? keyboardType;
-  final bool isRequired;
+  final Widget? prefixIcon;
 
-  TextInputWidget({
+  const TextInputWidget({
     super.key,
     required this.hintText,
     required this.controller,
     this.keyboardType,
     this.focusNode,
     this.isPassword = false,
-    this.isEnable = true,
+    // this.isEnable = true,
     this.onFieldSubmitted,
-    this.isRequired = false, this.textInputAction,
+    this.textInputAction,
+    this.prefixIcon,
   });
 
   @override
@@ -31,58 +33,65 @@ class TextInputWidget extends StatefulWidget {
 }
 
 class _TextInputWidgetState extends State<TextInputWidget> {
+  final formKey = GlobalKey<FormState>();
   final AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return TextFormField(
-        controller: widget.controller,
-        enabled: widget.isEnable,
-        focusNode: widget.focusNode,
-        keyboardType: widget.keyboardType,
-        textInputAction: widget.textInputAction ?? TextInputAction.next,
-        obscureText: authController.passwordVisible.value && widget.isPassword,
-        decoration: InputDecoration(
-          hintText: widget.hintText,
-          hintStyle: const TextStyle(
-            color: Colors.grey,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
+      return Form(
+        child: TextFormField(
+          controller: widget.controller,
+          // enabled: widget.isEnable,
+          focusNode: widget.focusNode,
+          keyboardType: widget.keyboardType,
+          textInputAction: widget.textInputAction ?? TextInputAction.next,
+          obscureText:
+              authController.passwordVisible.value && widget.isPassword,
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            hintStyle: const TextStyle(
               color: Colors.grey,
+              fontFamily: 'Inter-regular',
             ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
-              color: Colors.grey,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                color: Colors.grey,
+              ),
             ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
-              color: AppThemeColors.enableColor,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                color: Colors.grey,
+              ),
             ),
-          ),
-          suffixIcon: widget.isPassword
-              ? IconButton(
-                  onPressed: () {
-                    authController.togglePasswordVisibility();
-                  },
-                  icon: Obx(
-                    () {
-                      return Icon(
-                        authController.passwordVisible.value
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: Colors.grey,
-                      );
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(
+                color: Theme.of(context).primaryColor,
+                width: 2,
+              ),
+            ),
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    onPressed: () {
+                      authController.togglePasswordVisibility();
                     },
-                  ),
-                )
-              : null,
+                    icon: Obx(
+                      () {
+                        return Icon(
+                          authController.passwordVisible.value
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.grey,
+                        );
+                      },
+                    ),
+                  )
+                : null,
+          ),
         ),
       );
     });

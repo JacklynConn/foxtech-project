@@ -1,7 +1,7 @@
-import '/screens/auth/signup_screen.dart';
+import '../../screens/inner_screens/theme_screen.dart';
+import '/screens/auth/register_screen.dart';
 import '../../root_screen.dart';
 import '../../screens/auth/login_screen.dart';
-import '../../themes/theme_screen.dart';
 import '/common/routes/name.dart';
 import '/splash_screen.dart';
 import 'package:get/get.dart';
@@ -23,10 +23,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.loginScreen,
       page: () => const LoginScreen(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: AppRoutes.signUpScreen,
-      page: () => const SignupScreen(),
+      page: () => const RegisterScreen(),
+      transition: Transition.rightToLeft,
     ),
   ];
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foxtech_project/screens/auth/more_screen.dart';
+import 'package:foxtech_project/screens/more_screen.dart';
 import '/screens/friends_screen.dart';
 import '/screens/call_screen.dart';
 import '/screens/chat_screen.dart';

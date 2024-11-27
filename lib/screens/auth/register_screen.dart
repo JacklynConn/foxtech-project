@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_styles.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
-import '../../common/styles/app_theme_color.dart';
-import '../../widgets/forget_widget.dart';
+import '/common/styles/app_styles.dart';
+import '/widgets/texts/subtitle_widget.dart';
+import 'package:lottie/lottie.dart';
 import '/common/routes/name.dart';
 import '../../common/utilities/assets_manager.dart';
-import '../../widgets/button_widget.dart';
 import '../../widgets/text_input_widget.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final formKey = GlobalKey<FormState>();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,36 +39,57 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Spacer(),
                   Column(
                     children: [
-                      const SizedBox(
-                        width: 200,
-                        height: 200,
-                        child: Image(
-                          image: AssetImage(AssetsManager.foxtechLogo),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      const SubtitleWidget(
-                        label: 'Welcome!',
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      Text.rich(
-                        TextSpan(
-                          text: 'to ',
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'FoxTalk',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).primaryColor,
+                      Stack(
+                        children: [
+                          Container(
+                            width: 130,
+                            height: 130,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.deepOrangeAccent,
+                                width: 1,
                               ),
-                            )
-                          ],
+                            ),
+                            child: Lottie.asset(
+                              AssetsManager.profileAnimation,
+                              width: 100,
+                              height: 100,
+                            ),
+                          ),
+                          Positioned(
+                            right: 6,
+                            bottom: 6,
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.deepOrangeAccent,
+                              ),
+                              child: const Icon(
+                                Icons.camera_alt,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      const SubtitleWidget(
+                        label: 'Create an account',
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      const SizedBox(height: 20),
+                      TextInputWidget(
+                        controller: TextEditingController(),
+                        hintText: 'Full Name',
+                        isPassword: false,
+                        keyboardType: TextInputType.name,
+                        prefixIcon: const Icon(
+                          Icons.person,
+                          color: Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -78,26 +97,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: phoneController,
                         hintText: 'Phone Number',
                         keyboardType: TextInputType.phone,
-                        prefixIcon:
-                            const Icon(Icons.phone, color: Colors.grey),
-                        // isRequired: true,
-                        onFieldSubmitted: (_) {
-                          FocusScope.of(context).nextFocus();
-                        },
-                        textInputAction: TextInputAction.next,
+                        prefixIcon: const Icon(
+                          Icons.phone,
+                          color: Colors.grey,
+                        ),
                       ),
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: passwordController,
                         hintText: 'Password',
                         isPassword: true,
-                        prefixIcon:
-                            const Icon(Icons.lock, color: Colors.grey),
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Colors.grey,
+                        ),
                       ),
                       const SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Get.offAllNamed(AppRoutes.rootScreen);
+                          Get.offAllNamed(AppRoutes.loginScreen);
                         },
                         child: Container(
                           width: 200,
@@ -115,9 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Login',
-                              style: AppStyles.bold(
-                                  color: Colors.white, size: 20),
+                              'Register',
+                              style:
+                                  AppStyles.bold(color: Colors.white, size: 20),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -127,15 +145,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const SubtitleWidget(
-                            label: 'Don\'t have an account?',
+                            label: 'Already have an account?',
                             fontSize: 15,
                           ),
                           TextButton(
                             onPressed: () {
-                              Get.toNamed(AppRoutes.signUpScreen);
+                              Get.toNamed(AppRoutes.forgotPasswordScreen);
                             },
                             child: SubtitleWidget(
-                              label: 'Register',
+                              label: 'Login',
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).primaryColor,
@@ -143,18 +161,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ],
                       ),
-                      ForgetWidget(),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     Get.toNamed(AppRoutes.signUpScreen);
-                      //   },
-                      //   child: SubtitleWidget(
-                      //     label: 'Forgot Password?',
-                      //     fontSize: 15,
-                      //     fontWeight: FontWeight.w600,
-                      //     color: Theme.of(context).primaryColor,
-                      //   ),
-                      // ),
                     ],
                   ),
                   const Spacer(),
