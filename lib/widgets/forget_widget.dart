@@ -73,7 +73,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Get.toNamed(AppRoutes.verificationScreen);
+                          Get.toNamed(AppRoutes.forgotPasswordScreen);
                         },
                         child: SubtitleWidget(
                           label: 'Send',

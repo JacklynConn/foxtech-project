@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foxtech_project/screens/auth/reset_password_screen.dart';
 import '/common/routes/name.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../common/styles/app_strings.dart';
@@ -222,27 +223,30 @@ class _ForgetVerifyScreenState extends State<ForgetVerifyScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.offAllNamed(AppRoutes.rootScreen);
-                      },
-                      child: Container(
-                        width: 120,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              bottomLeft: Radius.circular(30),
-                            )),
-                        child: Obx(
-                          () => authController.isLoading.value
-                              ? const Center(
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : const Center(
+                    Container(
+                      width: 120,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            bottomLeft: Radius.circular(30),
+                          )),
+                      child: Obx(
+                        () => authController.isLoading.value
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
+                              )
+                            : GestureDetector(
+                                onTap: () {
+                                  Get.to(
+                                    () => const ResetPasswordScreen(),
+                                    transition: Transition.rightToLeft,
+                                  );
+                                },
+                                child: const Center(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -259,7 +263,7 @@ class _ForgetVerifyScreenState extends State<ForgetVerifyScreen> {
                                     ],
                                   ),
                                 ),
-                        ),
+                              ),
                       ),
                     ),
                   ],

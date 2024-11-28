@@ -1,3 +1,6 @@
+import 'package:foxtech_project/screens/auth/forget_verify_screen.dart';
+import 'package:foxtech_project/screens/auth/reset_password_screen.dart';
+
 import '/screens/auth/verify_code_screen.dart';
 import '../../screens/inner_screens/theme_screen.dart';
 import '/screens/auth/signup_screen.dart';
@@ -36,6 +39,16 @@ class AppPages {
     GetPage(
       name: AppRoutes.verificationScreen,
       page: () => const VerifyCodeScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.forgotPasswordScreen,
+      page: () => const ForgetVerifyScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.resetPasswordScreen,
+      page: () => const ResetPasswordScreen(),
       transition: Transition.rightToLeft,
     ),
   ];
