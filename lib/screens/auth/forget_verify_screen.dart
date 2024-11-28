@@ -9,14 +9,14 @@ import '../../controllers/auth_controller.dart';
 import 'package:get/get.dart';
 import '../../widgets/texts/subtitle_widget.dart';
 
-class VerifyCodeScreen extends StatefulWidget {
-  const VerifyCodeScreen({super.key});
+class ForgetVerifyScreen extends StatefulWidget {
+  const ForgetVerifyScreen({super.key});
 
   @override
-  State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
+  State<ForgetVerifyScreen> createState() => _ForgetVerifyScreenState();
 }
 
-class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+class _ForgetVerifyScreenState extends State<ForgetVerifyScreen> {
   final authController = Get.find<AuthController>();
   String smsCode = "";
   int resendOTPCounter = 60;
