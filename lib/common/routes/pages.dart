@@ -1,5 +1,6 @@
+import '/screens/auth/verify_code_screen.dart';
 import '../../screens/inner_screens/theme_screen.dart';
-import '/screens/auth/register_screen.dart';
+import '/screens/auth/signup_screen.dart';
 import '../../root_screen.dart';
 import '../../screens/auth/login_screen.dart';
 import '/common/routes/name.dart';
@@ -11,10 +12,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.INITIAL,
       page: () => const SplashScreen(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: AppRoutes.rootScreen,
       page: () => const RootScreen(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: AppRoutes.themeScreen,
@@ -27,7 +30,12 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.signUpScreen,
-      page: () => const RegisterScreen(),
+      page: () => const SignupScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.verificationScreen,
+      page: () => const VerifyCodeScreen(),
       transition: Transition.rightToLeft,
     ),
   ];

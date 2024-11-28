@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/widgets/text_input_widget.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
+import '../common/routes/name.dart';
+import '/widgets/text_input_widget.dart';
+import '/widgets/texts/subtitle_widget.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,59 +26,64 @@ class _ForgetWidgetState extends State<ForgetWidget> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AlertDialog(
-                  titlePadding: const EdgeInsets.all(0),
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  title: Column(
-                    children: [
-                      Lottie.asset(
-                        'assets/lottie/forget_animation.json',
-                        fit: BoxFit.cover,
-                      ),
-                      const SizedBox(height: 10),
-                      SubtitleWidget(
-                        label: 'Enter your phone number',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ],
-                  ),
-                  content: Form(
-                    child: TextInputWidget(
-                      hintText: 'Phone Number',
-                      controller: phoneController,
-                      keyboardType: TextInputType.phone,
-                      prefixIcon: Icon(
-                        Icons.phone,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                  },
+                  child: AlertDialog(
+                    titlePadding: EdgeInsets.zero,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    title: Column(
+                      children: [
+                        Lottie.asset(
+                          'assets/lottie/forget_animation.json',
+                          fit: BoxFit.cover,
+                        ),
+                        const SizedBox(height: 10),
+                        SubtitleWidget(
+                          label: 'Enter your phone number',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ],
                     ),
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: const Text(
-                        'Cancel',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
+                    content: Form(
+                      child: TextInputWidget(
+                        hintText: 'Phone Number',
+                        controller: phoneController,
+                        keyboardType: TextInputType.phone,
+                        prefixIcon: const Icon(
+                          Icons.phone,
                         ),
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: SubtitleWidget(
-                        label: 'Send',
-                        fontSize: 15,
-                        color: Theme.of(context).primaryColor,
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const Text(
+                          'Cancel',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.verificationScreen);
+                        },
+                        child: SubtitleWidget(
+                          label: 'Send',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             );

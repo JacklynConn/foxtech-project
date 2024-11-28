@@ -30,7 +30,7 @@ class AppThemes {
   );
 
   static final ThemeData darkTheme = ThemeData(
-    primaryColor: darkPrimary,
+    primaryColor: primary,
     primaryColorLight: darkPrimary,
     highlightColor: darkAccent,
     hintColor: darkAccent,

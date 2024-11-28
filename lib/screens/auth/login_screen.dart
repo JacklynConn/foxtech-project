@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Get.toNamed(AppRoutes.signUpScreen);
                             },
                             child: SubtitleWidget(
-                              label: 'Register',
+                              label: 'Sign Up',
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).primaryColor,
@@ -143,18 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ],
                       ),
-                      ForgetWidget(),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     Get.toNamed(AppRoutes.signUpScreen);
-                      //   },
-                      //   child: SubtitleWidget(
-                      //     label: 'Forgot Password?',
-                      //     fontSize: 15,
-                      //     fontWeight: FontWeight.w600,
-                      //     color: Theme.of(context).primaryColor,
-                      //   ),
-                      // ),
+                      const ForgetWidget(),
                     ],
                   ),
                   const Spacer(),

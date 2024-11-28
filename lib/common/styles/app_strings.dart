@@ -10,4 +10,7 @@ class AppStrings {
   static const String homeScreen = 'Home Screen';
   static const String profileScreen = 'Profile Screen';
   static const String inviteFriends = 'Invite Friends to FoxTalk';
+  static const String verificationCodeHint = 'We have sent you a verification code to your: ';
+  static const String youCanCheckBox = ' Your can check in box.';
+  static const String resendVerificationCode = 'Didn\'t receive the code? Send again';
 }

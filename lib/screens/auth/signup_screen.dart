@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foxtech_project/common/routes/pages.dart';
+import 'package:foxtech_project/screens/auth/verify_code_screen.dart';
 import '/common/styles/app_styles.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -7,14 +9,14 @@ import '../../common/utilities/assets_manager.dart';
 import '../../widgets/text_input_widget.dart';
 import 'package:get/get.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -115,7 +117,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       const SizedBox(height: 20),
                       GestureDetector(
                         onTap: () {
-                          Get.offAllNamed(AppRoutes.loginScreen);
+                          Get.to(
+                            () => const VerifyCodeScreen(),
+                            transition: Transition.rightToLeft,
+                          );
                         },
                         child: Container(
                           width: 200,
@@ -133,9 +138,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Register',
-                              style:
-                                  AppStyles.bold(color: Colors.white, size: 20),
+                              'Sign Up',
+                              style: AppStyles.bold(
+                                color: Colors.white,
+                                size: 20,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -150,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Get.toNamed(AppRoutes.forgotPasswordScreen);
+                              Get.toNamed(AppRoutes.loginScreen);
                             },
                             child: SubtitleWidget(
                               label: 'Login',
