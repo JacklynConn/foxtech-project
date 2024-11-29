@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: phoneController,
-                        hintText: 'Phone Number',
+                        labelText: 'Phone Number',
                         keyboardType: TextInputType.phone,
                         prefixIcon:
                             const Icon(Icons.phone, color: Colors.grey),
@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: passwordController,
-                        hintText: 'Password',
+                        labelText: 'Password',
                         isPassword: true,
                         prefixIcon:
                             const Icon(Icons.lock, color: Colors.grey),

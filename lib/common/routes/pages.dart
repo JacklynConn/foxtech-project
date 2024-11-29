@@ -1,6 +1,5 @@
-import 'package:foxtech_project/screens/auth/forget_verify_screen.dart';
-import 'package:foxtech_project/screens/auth/reset_password_screen.dart';
-
+import '/screens/auth/forget_verify_screen.dart';
+import '/screens/auth/reset_password_screen.dart';
 import '/screens/auth/verify_code_screen.dart';
 import '../../screens/inner_screens/theme_screen.dart';
 import '/screens/auth/signup_screen.dart';

@@ -4,7 +4,7 @@ import '/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 
 class TextInputWidget extends StatefulWidget {
-  final String hintText;
+  final String labelText;
 
   // final bool isEnable;
   final bool isPassword;
@@ -17,7 +17,7 @@ class TextInputWidget extends StatefulWidget {
 
   const TextInputWidget({
     super.key,
-    required this.hintText,
+    required this.labelText,
     required this.controller,
     this.keyboardType,
     this.focusNode,
@@ -49,8 +49,8 @@ class _TextInputWidgetState extends State<TextInputWidget> {
           obscureText:
               authController.passwordVisible.value && widget.isPassword,
           decoration: InputDecoration(
-            hintText: widget.hintText,
-            hintStyle: const TextStyle(
+            labelText: widget.labelText,
+            labelStyle: const TextStyle(
               color: Colors.grey,
               fontFamily: 'Inter-regular',
             ),

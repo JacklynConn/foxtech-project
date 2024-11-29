@@ -50,7 +50,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                     ),
                     content: Form(
                       child: TextInputWidget(
-                        hintText: 'Phone Number',
+                        labelText: 'Phone Number',
                         controller: phoneController,
                         keyboardType: TextInputType.phone,
                         prefixIcon: const Icon(

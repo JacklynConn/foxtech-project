@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/routes/pages.dart';
-import 'package:foxtech_project/screens/auth/verify_code_screen.dart';
+import '/screens/auth/verify_code_screen.dart';
 import '/common/styles/app_styles.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -86,7 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: TextEditingController(),
-                        hintText: 'Full Name',
+                        labelText: 'Username',
                         isPassword: false,
                         keyboardType: TextInputType.name,
                         prefixIcon: const Icon(
@@ -97,7 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: phoneController,
-                        hintText: 'Phone Number',
+                        labelText: 'Phone Number',
                         keyboardType: TextInputType.phone,
                         prefixIcon: const Icon(
                           Icons.phone,
@@ -107,7 +106,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: passwordController,
-                        hintText: 'Password',
+                        labelText: 'Password',
+                        keyboardType: TextInputType.visiblePassword,
                         isPassword: true,
                         prefixIcon: const Icon(
                           Icons.lock,
