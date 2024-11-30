@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_styles.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
-import '../../common/styles/app_theme_color.dart';
+import '/common/styles/app_styles.dart';
+import '/widgets/texts/subtitle_widget.dart';
 import '../../widgets/forget_widget.dart';
 import '/common/routes/name.dart';
 import '../../common/utilities/assets_manager.dart';
-import '../../widgets/button_widget.dart';
 import '../../widgets/text_input_widget.dart';
 import 'package:get/get.dart';
 

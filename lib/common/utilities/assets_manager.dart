@@ -4,10 +4,9 @@ class AssetsManager{
 
   static const String foxtechLogo = '${_images}foxtech_logo.png';
   static const String profileImage = '${_images}profile.png';
+  static const String forgetAnimation = '${_images}forget_phone.gif';
 
   static const String chatAnimation = '${_lottie}chat_animation.json';
   static const String profileAnimation = '${_lottie}profile_animation.json';
   static const passwordAnimation = '${_lottie}password_animation.json';
-  static const String forgetAnimation = '${_lottie}forgot_animation.json';
-  static const String forgotAnimation = '${_lottie}forget_animation.json';
 }

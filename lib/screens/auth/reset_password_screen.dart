@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_styles.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
+import '/widgets/texts/subtitle_widget.dart';
 import 'package:lottie/lottie.dart';
-import '../../common/styles/app_theme_color.dart';
-import '../../widgets/forget_widget.dart';
 import '/common/routes/name.dart';
 import '../../common/utilities/assets_manager.dart';
-import '../../widgets/button_widget.dart';
 import '../../widgets/text_input_widget.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +30,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: ListView(
             children: [
-              Lottie.asset(AssetsManager.passwordAnimation, height: 300),
+              Lottie.asset(AssetsManager.passwordAnimation, height: 220),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -45,20 +41,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                   const SizedBox(height: 20),
                   TextInputWidget(
-                    controller: phoneController,
-                    labelText: 'Phone Number',
-                    keyboardType: TextInputType.phone,
-                    prefixIcon: const Icon(Icons.phone, color: Colors.grey),
-                    // isRequired: true,
-                    onFieldSubmitted: (_) {
-                      FocusScope.of(context).nextFocus();
-                    },
-                    textInputAction: TextInputAction.next,
-                  ),
-                  const SizedBox(height: 20),
-                  TextInputWidget(
                     controller: passwordController,
-                    labelText: 'Password',
+                    labelText: 'New Password',
                     isPassword: true,
                     prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                   ),
@@ -81,11 +65,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           end: Alignment.bottomRight,
                         ),
                       ),
-                      child: Center(
-                        child: Text(
-                          'Submit',
-                          style: AppStyles.bold(color: Colors.white, size: 20),
-                          textAlign: TextAlign.center,
+                      child: const Center(
+                        child: SubtitleWidget(
+                          label: 'Reset',
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),

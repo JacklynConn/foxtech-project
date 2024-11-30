@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
 import '../common/utilities/assets_manager.dart';
 import '/common/styles/app_strings.dart';
 import 'package:lottie/lottie.dart';
@@ -19,6 +20,7 @@ class _CallScreenState extends State<CallScreen> {
     return Scaffold(
       appBar: _appBar,
       body: _buildCallList,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     );
   }
 
@@ -45,6 +47,7 @@ class _CallScreenState extends State<CallScreen> {
         )
       ],
       backgroundColor: Colors.transparent,
+      elevation: 0,
     );
   }
 
@@ -55,8 +58,7 @@ class _CallScreenState extends State<CallScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 300,
-            height: 240,
+            height: 220,
             child: Lottie.asset(
               AssetsManager.chatAnimation,
               fit: BoxFit.cover,
@@ -65,18 +67,18 @@ class _CallScreenState extends State<CallScreen> {
           Text(
             'Make calls to your friends',
             style: AppStyles.appTitle(
-              size: 22,
-              color: Theme.of(context).primaryColorLight,
+              size: 20,
+              color: Theme.of(context).textTheme.titleLarge!.color,
             ),
           ),
-          Text(
-            'You recent history will be listed here',
-            style: AppStyles.regular1(size: 16, color: Colors.grey),
+          SubtitleWidget(
+            label: 'You recent history will be listed here',
+            color: Theme.of(context).textTheme.titleMedium!.color,
           ),
           const SizedBox(height: 20),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xffff6f6f6),
+              backgroundColor: Theme.of(context).cardColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -87,13 +89,7 @@ class _CallScreenState extends State<CallScreen> {
               ),
             ),
             onPressed: () {},
-            child: Text(
-              'Call Now',
-              style: AppStyles.bold(
-                size: 18,
-                color: Theme.of(context).textTheme.titleSmall!.color,
-              ),
-            ),
+            child: SubtitleWidget(label: 'Call Now', color: Theme.of(context).textTheme.titleLarge!.color),
           ),
         ],
       ),

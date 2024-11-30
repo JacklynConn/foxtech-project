@@ -1,44 +1,69 @@
 import 'package:flutter/material.dart';
 
-// Light theme colors
 Color primary = const Color(0xFFFD7F2C);
 Color secondaryColor = const Color(0xFFFD9346);
-Color text = const Color(0xFF000000);
-Color background = const Color(0xFFFFFFFF);
-Color iconNavigation = const Color(0xFFFD7F2C);
+Color grey = const Color(0xFFA6A2A2);
+Color lightGrey = const Color(0xFFE2E2E2);
+Color white = const Color(0xFFFFFFFF);
+Color black = const Color(0xFF000000);
+Color deepLight = const Color(0xFFFFEBDD);
+Color background = const Color(0xFFF5F5F5);
 
-// Dark theme colors
-Color darkPrimary = const Color(0xFF1A1A1A);
-Color darkAccent = const Color(0xFFFD7F2C);
-Color darkText = const Color(0xFFE0E0E0);
-Color darkBackground = const Color(0xFF121212);
-Color darkIconNavigation = const Color(0xFFFD7F2C);
-Color unselectedItemColor = const Color(0xFFB5B5B5);
+class AppColors {
+  static const Color primary = Color(0xFFFD7F2C);
+  static const Color secondaryColor = Color(0xFFFD9346);
+  static const Color grey = Color(0xFFA6A2A2);
+  static const Color lightGrey = Color(0xFFE2E2E2);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color deepLight = Color(0xFFFFEBDD);
+}
 
 class AppThemes {
   static final ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
     primaryColor: primary,
     primaryColorLight: primary,
     highlightColor: secondaryColor,
-    hintColor: secondaryColor,
+    cardColor: white,
     scaffoldBackgroundColor: background,
-    iconTheme: IconThemeData(color: iconNavigation),
-    appBarTheme: const AppBarTheme(
+    textTheme: TextTheme(
+      titleLarge: TextStyle(color: black),
+      titleSmall: TextStyle(color: white),
+      titleMedium: TextStyle(color: grey),
+    ),
+    iconTheme: IconThemeData(color: primary),
+    appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
-      elevation: 0,
+      actionsIconTheme: IconThemeData(color: black),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedItemColor: primary,
+      unselectedItemColor: grey,
+      backgroundColor: white,
     ),
   );
 
   static final ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
     primaryColor: primary,
-    primaryColorLight: darkPrimary,
-    highlightColor: darkAccent,
-    hintColor: darkAccent,
-    scaffoldBackgroundColor: darkBackground,
-    iconTheme: IconThemeData(color: darkIconNavigation),
+    primaryColorLight: primary,
+    highlightColor: secondaryColor,
+    iconTheme: IconThemeData(color: primary),
+    scaffoldBackgroundColor: Colors.black,
+    textTheme: const TextTheme(
+      titleLarge: TextStyle(color: Colors.white),
+      titleSmall: TextStyle(color: Colors.white),
+      titleMedium: TextStyle(color: Colors.white),
+    ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
-      elevation: 0,
+      actionsIconTheme: IconThemeData(color: Colors.white),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedItemColor: primary,
+      unselectedItemColor: grey,
+      backgroundColor: Colors.black,
     ),
   );
 }

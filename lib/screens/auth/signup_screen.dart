@@ -136,14 +136,12 @@ class _SignupScreenState extends State<SignupScreen> {
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          child: Center(
-                            child: Text(
-                              'Sign Up',
-                              style: AppStyles.bold(
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              textAlign: TextAlign.center,
+                          child: const Center(
+                            child: SubtitleWidget(
+                              label: 'Sign Up',
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

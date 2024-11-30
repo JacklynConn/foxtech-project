@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foxtech_project/common/styles/app_theme_color.dart';
 import 'common/styles/app_strings.dart';
 import '/controllers/root_controller.dart';
 import 'package:get/get.dart';
@@ -24,53 +25,125 @@ class _RootScreenState extends State<RootScreen> {
             index: _rootController.currentIndex,
             children: _rootController.lstScreens,
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _rootController.currentIndex,
-            onTap: _rootController.bottomNavigationTap,
-            selectedItemColor:
-                Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-            type: BottomNavigationBarType.fixed,
-            unselectedItemColor:
-                Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+          bottomNavigationBar: BottomAppBar(
+            color: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.person_fill),
-                label: AppStrings.friend,
+            child: Container(
+              height: 70,
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 3,
+                    blurRadius: 5,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Stack(
-                  children: [
-                    Icon(CupertinoIcons.chat_bubble_fill),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: CircleAvatar(
-                        radius: 8,
-                        backgroundColor: Colors.red,
-                        child: Text(
-                          '5',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                          ),
-                          textAlign: TextAlign.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      _rootController.bottomNavigationTap(0);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color: _rootController.currentIndex == 0
+                              ? AppColors.primary
+                              : Colors.grey,
                         ),
-                      ),
+                        Text(
+                          AppStrings.friend,
+                          style: TextStyle(
+                            color: _rootController.currentIndex == 0
+                                ? AppColors.primary
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                label: AppStrings.chat,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _rootController.bottomNavigationTap(1);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          CupertinoIcons.chat_bubble,
+                          color: _rootController.currentIndex == 1
+                              ? AppColors.primary
+                              : Colors.grey,
+                        ),
+                        Text(
+                          AppStrings.chat,
+                          style: TextStyle(
+                            color: _rootController.currentIndex == 1
+                                ? AppColors.primary
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _rootController.bottomNavigationTap(2);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.call,
+                          color: _rootController.currentIndex == 2
+                              ? AppColors.primary
+                              : Colors.grey,
+                        ),
+                        Text(
+                          AppStrings.call,
+                          style: TextStyle(
+                            color: _rootController.currentIndex == 2
+                                ? AppColors.primary
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _rootController.bottomNavigationTap(3);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.more_horiz,
+                          color: _rootController.currentIndex == 3
+                              ? AppColors.primary
+                              : Colors.grey,
+                        ),
+                        Text(
+                          AppStrings.more,
+                          style: TextStyle(
+                            color: _rootController.currentIndex == 3
+                                ? AppColors.primary
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.phone_fill),
-                label: AppStrings.call,
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.more_horiz, size: 30),
-                label: AppStrings.more,
-              ),
-            ],
+            ),
           ),
         );
       },

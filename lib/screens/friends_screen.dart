@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import '/common/styles/app_theme_color.dart';
+import '../widgets/texts/subtitle_widget.dart';
+import '/widgets/appbar_widget.dart';
 import '../common/styles/app_strings.dart';
 import '../common/styles/app_styles.dart';
 
@@ -17,30 +20,27 @@ class _FriendScreenState extends State<FriendScreen> {
     return Scaffold(
       appBar: _appBar,
       body: _buildChatList,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     );
   }
 
-  AppBar get _appBar {
-    return AppBar(
-      title: Text(
-        AppStrings.friend,
-        style: AppStyles.appTitle(size: 22),
-      ),
+  AppbarWidget get _appBar {
+    return AppbarWidget(
+      title: AppStrings.friend,
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(CupertinoIcons.search),
+          icon: const Icon(
+            CupertinoIcons.search,
+          ),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.person_add),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(IconlyLight.setting),
+          icon: const Icon(
+            IconlyLight.setting,
+          ),
         ),
       ],
-      backgroundColor: Colors.transparent,
     );
   }
 
@@ -57,27 +57,15 @@ class _FriendScreenState extends State<FriendScreen> {
                   Container(
                     width: 70,
                     height: 70,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: const BorderRadius.all(
+                    decoration: const BoxDecoration(
+                      color: AppColors.lightGrey,
+                      borderRadius: BorderRadius.all(
                         Radius.circular(25),
                       ),
-                      border: Border.all(
-                        color: Theme.of(context).primaryColor,
-                        width: 1,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.3),
-                          blurRadius: 5,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
-                      color: Theme.of(context).primaryColorDark,
+                      color: AppColors.secondaryColor,
                       size: 30,
                     ),
                   ),
@@ -86,7 +74,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     AppStrings.userNames,
                     style: AppStyles.bold(
                       size: 18,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).textTheme.titleLarge?.color,
                     ),
                   ),
                 ],
@@ -99,26 +87,24 @@ class _FriendScreenState extends State<FriendScreen> {
                       vertical: 5,
                     ),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).highlightColor,
+                      color: AppColors.lightGrey,
                       border: Border.all(
-                        color: Theme.of(context).primaryColor,
+                        color: AppColors.lightGrey,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
                       children: [
-                        Text(
-                          AppStrings.profile,
-                          style: AppStyles.regular1(
-                            size: 16,
-                            color: Theme.of(context).primaryColorLight,
-                          ),
+                        SubtitleWidget(
+                          label: AppStrings.profile,
+                          fontSize: 16,
+                          color: Theme.of(context).textTheme.titleMedium?.color,
                         ),
                         const SizedBox(width: 5),
                         Icon(
                           Icons.add,
-                          color: Theme.of(context).primaryColorLight,
+                          color: Theme.of(context).textTheme.titleMedium?.color,
                         ),
                       ],
                     ),
@@ -137,13 +123,15 @@ class _FriendScreenState extends State<FriendScreen> {
               Text(
                 AppStrings.group,
                 style: AppStyles.medium(
-                    size: 18, color: Theme.of(context).primaryColor),
+                  size: 18,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
+                ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
                   size: 30,
                 ),
               ),
@@ -178,7 +166,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     AppStrings.group,
                     style: AppStyles.medium(
                       size: 16,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).textTheme.titleLarge?.color,
                     ),
                   ),
                 ],
@@ -187,7 +175,7 @@ class _FriendScreenState extends State<FriendScreen> {
                 onPressed: () {},
                 icon: Icon(
                   Icons.keyboard_arrow_right,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
                   size: 30,
                 ),
               ),
@@ -204,14 +192,14 @@ class _FriendScreenState extends State<FriendScreen> {
                 AppStrings.friend,
                 style: AppStyles.medium(
                   size: 18,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
                 ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
                   size: 30,
                 ),
               ),
@@ -233,14 +221,14 @@ class _FriendScreenState extends State<FriendScreen> {
                         Radius.circular(23),
                       ),
                       border: Border.all(
-                        color: Theme.of(context).primaryColor,
+                        color: AppColors.lightGrey,
                         width: 1,
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: AppColors.lightGrey,
                     ),
                     child: Icon(
                       Icons.mail,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).primaryColor,
                       size: 30,
                     ),
                   ),
@@ -249,7 +237,7 @@ class _FriendScreenState extends State<FriendScreen> {
                     AppStrings.inviteFriends,
                     style: AppStyles.medium(
                       size: 16,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).textTheme.titleLarge?.color,
                     ),
                   ),
                 ],
@@ -258,7 +246,7 @@ class _FriendScreenState extends State<FriendScreen> {
                 onPressed: () {},
                 icon: Icon(
                   Icons.keyboard_arrow_right,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).textTheme.titleLarge?.color,
                   size: 30,
                 ),
               ),

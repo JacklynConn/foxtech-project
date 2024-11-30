@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import '/common/utilities/assets_manager.dart';
 import '../common/routes/name.dart';
 import '/widgets/text_input_widget.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class ForgetWidget extends StatefulWidget {
   const ForgetWidget({super.key});
@@ -35,8 +35,8 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     title: Column(
                       children: [
-                        Lottie.asset(
-                          'assets/lottie/forget_animation.json',
+                        Image.asset(
+                          AssetsManager.forgetAnimation,
                           fit: BoxFit.cover,
                         ),
                         const SizedBox(height: 10),
