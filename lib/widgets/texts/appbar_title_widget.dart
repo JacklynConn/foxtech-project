@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SubtitleWidget extends StatelessWidget {
+class AppBarTitleWidget extends StatelessWidget {
   final String label;
   final double fontSize;
-  final FontStyle fontStyle;
+  final FontStyle? fontStyle;
   final FontWeight? fontWeight;
   final String? fontFamily;
   final Color? color;
@@ -12,12 +12,12 @@ class SubtitleWidget extends StatelessWidget {
   final int? maxLines;
   final TextAlign? textAlign;
 
-  const SubtitleWidget({
+  const AppBarTitleWidget({
     super.key,
     required this.label,
-    this.fontSize = 18,
-    this.fontStyle = FontStyle.normal,
-    this.fontWeight,
+    this.fontSize = 24,
+    this.fontStyle,
+    this.fontWeight = FontWeight.w500,
     this.fontFamily,
     this.color,
     this.overflow,
@@ -35,7 +35,7 @@ class SubtitleWidget extends StatelessWidget {
         fontStyle: fontStyle,
         fontWeight: fontWeight,
         fontFamily: fontFamily,
-        color: color ?? Theme.of(context).textTheme.titleMedium?.color,
+        color: Theme.of(context).textTheme.titleLarge?.color,
         decoration: decoration,
       ),
       overflow: overflow,

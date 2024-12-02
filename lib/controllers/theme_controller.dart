@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class ThemeController extends GetxController {
-  // Observable to track theme
+  // Observable to track themes
   Rx<ThemeMode> themeMode = ThemeMode.system.obs;
 
-  // Storage key for saving theme
+  // Storage key for saving themes
   final _storageKey = 'isDarkMode';
 
   // Reference to GetStorage
@@ -19,12 +19,12 @@ class ThemeController extends GetxController {
   }
 
   void _loadThemeFromStorageOrSystem() {
-    // Check if the theme is already saved in storage
+    // Check if the themes is already saved in storage
     if (_storage.hasData(_storageKey)) {
       final isDarkMode = _storage.read<bool>(_storageKey);
       themeMode.value = isDarkMode! ? ThemeMode.dark : ThemeMode.light;
     } else {
-      // If no preference saved, use system theme
+      // If no preference saved, use system themes
       themeMode.value = ThemeMode.system;
     }
   }
@@ -41,7 +41,7 @@ class ThemeController extends GetxController {
   }
 
   void setSystemTheme() {
-    // Set to system theme and clear storage preference
+    // Set to system themes and clear storage preference
     themeMode.value = ThemeMode.system;
     _storage.remove(_storageKey);
   }

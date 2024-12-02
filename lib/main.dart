@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/common/styles/app_theme_color.dart';
+import 'common/themes/theme.dart';
 import '/common/routes/name.dart';
 import '/controllers/theme_controller.dart';
 import 'package:get/get.dart';
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         title: 'KaKoa Talk',
         debugShowCheckedModeBanner: false,
-        theme: AppThemes.lightTheme,
-        darkTheme: AppThemes.darkTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
         themeMode: themeController.themeMode.value,
         initialRoute: AppRoutes.INITIAL,
         getPages: AppPages.routes,

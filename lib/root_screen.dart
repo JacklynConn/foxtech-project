@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_theme_color.dart';
 import 'common/styles/app_strings.dart';
 import '/controllers/root_controller.dart';
 import 'package:get/get.dart';
@@ -55,15 +54,16 @@ class _RootScreenState extends State<RootScreen> {
                         Icon(
                           Icons.person,
                           color: _rootController.currentIndex == 0
-                              ? AppColors.primary
+                              ? Theme.of(context).colorScheme.primary
                               : Colors.grey,
                         ),
                         Text(
                           AppStrings.friend,
                           style: TextStyle(
                             color: _rootController.currentIndex == 0
-                                ? AppColors.primary
+                                ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
+                            fontSize: 12,
                           ),
                         ),
                       ],
@@ -79,15 +79,16 @@ class _RootScreenState extends State<RootScreen> {
                         Icon(
                           CupertinoIcons.chat_bubble,
                           color: _rootController.currentIndex == 1
-                              ? AppColors.primary
+                              ? Theme.of(context).colorScheme.primary
                               : Colors.grey,
                         ),
                         Text(
                           AppStrings.chat,
                           style: TextStyle(
                             color: _rootController.currentIndex == 1
-                                ? AppColors.primary
+                                ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
+                            fontSize: 12,
                           ),
                         ),
                       ],
@@ -103,15 +104,16 @@ class _RootScreenState extends State<RootScreen> {
                         Icon(
                           Icons.call,
                           color: _rootController.currentIndex == 2
-                              ? AppColors.primary
+                              ? Theme.of(context).colorScheme.primary
                               : Colors.grey,
                         ),
                         Text(
                           AppStrings.call,
                           style: TextStyle(
                             color: _rootController.currentIndex == 2
-                                ? AppColors.primary
+                                ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
+                            fontSize: 12,
                           ),
                         ),
                       ],
@@ -127,15 +129,16 @@ class _RootScreenState extends State<RootScreen> {
                         Icon(
                           Icons.more_horiz,
                           color: _rootController.currentIndex == 3
-                              ? AppColors.primary
+                              ? Theme.of(context).colorScheme.primary
                               : Colors.grey,
                         ),
                         Text(
                           AppStrings.more,
                           style: TextStyle(
                             color: _rootController.currentIndex == 3
-                                ? AppColors.primary
+                                ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
+                            fontSize: 12,
                           ),
                         ),
                       ],

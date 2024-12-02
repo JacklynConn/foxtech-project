@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
+import 'package:foxtech_project/common/themes/colors.dart';
+import 'package:foxtech_project/widgets/texts/title_widget.dart';
+import '/widgets/texts/appbar_title_widget.dart';
+import '/widgets/texts/subtitle_widget.dart';
 import '../common/styles/app_strings.dart';
-import '../common/styles/app_styles.dart';
-import '../common/styles/app_theme_color.dart';
+import '../models/chat_model.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -20,14 +21,11 @@ class ChatScreen extends StatelessWidget {
 
   AppBar get _buildAppBar {
     return AppBar(
-      title: Text(
-        AppStrings.chat,
-        style: AppStyles.appTitle(size: 22),
-      ),
+      title: const AppBarTitleWidget(label: AppStrings.chat),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(CupertinoIcons.search),
+          icon: const Icon(IconlyLight.search),
         ),
         IconButton(
           onPressed: () {},
@@ -45,48 +43,28 @@ class ChatScreen extends StatelessWidget {
       child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const SubtitleWidget(
-                  label: 'All Messages',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(width: 10),
-                CircleAvatar(
-                  backgroundColor: Theme.of(context).cardColor,
-                  radius: 14,
-                  child: SubtitleWidget(
-                    label: '2',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          allMessage(context),
           const SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: listChat.length,
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
+                var chat = listChat[index];
                 return Column(
                   children: [
                     Card(
                       elevation: 0,
+                      color: Theme.of(context).cardColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      color: Theme.of(context).cardColor,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 12),
+                          horizontal: 8,
+                          vertical: 12,
+                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
@@ -96,45 +74,46 @@ class ChatScreen extends StatelessWidget {
                                 children: [
                                   Stack(
                                     children: [
-                                      const CircleAvatar(
+                                      CircleAvatar(
                                         radius: 30,
-                                        backgroundImage: NetworkImage(
-                                          'https://i0.wp.com/reflektoronline.com/wp-content/uploads/2022/08/ronaldo-cristiano-AFP.jpg?fit=1308%2C818&ssl=1',
-                                        ),
+                                        backgroundImage:
+                                            NetworkImage(chat.avatarUrl),
                                       ),
-                                      Positioned(
-                                        bottom: 0,
-                                        right: 0,
-                                        child: Container(
-                                          width: 15,
-                                          height: 15,
-                                          decoration: BoxDecoration(
-                                            color: Colors.green,
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color: Colors.white,
-                                              width: 2,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      chat.isOnline
+                                          ? Positioned(
+                                              right: 2,
+                                              bottom: 2,
+                                              child: Container(
+                                                width: 15,
+                                                height: 15,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Colors.green,
+                                                  border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : const SizedBox(),
                                     ],
                                   ),
                                   const SizedBox(width: 10),
-                                  const Row(
+                                  Row(
                                     children: [
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           SubtitleWidget(
-                                            label: 'Cristiano Ronaldo',
+                                            label: chat.name,
                                             fontSize: 18,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                          SizedBox(height: 5),
+                                          const SizedBox(height: 5),
                                           SubtitleWidget(
-                                            label: 'Hello, how are you?, ',
+                                            label: chat.message,
                                             fontSize: 16,
                                             color: Colors.grey,
                                           ),
@@ -149,22 +128,16 @@ class ChatScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   SubtitleWidget(
-                                    label: '10:30 AM',
+                                    label: '${chat.time} pm',
                                     fontSize: 14,
                                     color: Colors.grey,
                                   ),
                                   const SizedBox(height: 10),
                                   CircleAvatar(
                                     backgroundColor:
-                                        Theme.of(context).primaryColor,
+                                        Theme.of(context).colorScheme.onPrimary,
                                     radius: 10,
-                                    child: Text(
-                                      '2',
-                                      style: AppStyles.medium(
-                                        size: 12,
-                                        color: Colors.white,
-                                      ),
-                                    ),
+                                    child: const SubtitleWidget(label: '2'),
                                   ),
                                 ],
                               ),
@@ -176,6 +149,33 @@ class ChatScreen extends StatelessWidget {
                   ],
                 );
               },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget allMessage(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          const TitleWidget(
+            label: AppStrings.allMessages,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          const SizedBox(width: 10),
+          CircleAvatar(
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            radius: 12,
+            child: SubtitleWidget(
+              label: '2',
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: lWhite,
             ),
           ),
         ],

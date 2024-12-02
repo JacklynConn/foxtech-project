@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/widgets/texts/subtitle_widget.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+import '../widgets/texts/appbar_title_widget.dart';
+import '/widgets/texts/subtitle_widget.dart';
 import '../common/utilities/assets_manager.dart';
 import '/common/styles/app_strings.dart';
 import 'package:lottie/lottie.dart';
-
-import '../common/styles/app_styles.dart';
 
 class CallScreen extends StatefulWidget {
   const CallScreen({super.key});
@@ -26,24 +25,26 @@ class _CallScreenState extends State<CallScreen> {
 
   AppBar get _appBar {
     return AppBar(
-      title: Text(
-        AppStrings.call,
-        style: AppStyles.appTitle(size: 22),
+      title: AppBar(
+        title: const AppBarTitleWidget(
+          label: AppStrings.call,
+        ),
       ),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(CupertinoIcons.search),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(CupertinoIcons.phone_fill),
+          icon: const Icon(IconlyLight.search),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
-            Icons.settings,
+            IconlyLight.call,
+            size: 25,
           ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(IconlyLight.setting),
         )
       ],
       backgroundColor: Colors.transparent,
@@ -58,22 +59,21 @@ class _CallScreenState extends State<CallScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: 220,
+            height: 200,
             child: Lottie.asset(
               AssetsManager.chatAnimation,
               fit: BoxFit.cover,
             ),
           ),
-          Text(
-            'Make calls to your friends',
-            style: AppStyles.appTitle(
-              size: 20,
-              color: Theme.of(context).textTheme.titleLarge!.color,
-            ),
+          const SubtitleWidget(
+            label: AppStrings.makeCall,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
           ),
+          const SizedBox(height: 10),
           SubtitleWidget(
-            label: 'You recent history will be listed here',
-            color: Theme.of(context).textTheme.titleMedium!.color,
+            label: AppStrings.youRecent,
+            color: Theme.of(context).textTheme.bodySmall!.color,
           ),
           const SizedBox(height: 20),
           ElevatedButton(
@@ -89,7 +89,10 @@ class _CallScreenState extends State<CallScreen> {
               ),
             ),
             onPressed: () {},
-            child: SubtitleWidget(label: 'Call Now', color: Theme.of(context).textTheme.titleLarge!.color),
+            child: SubtitleWidget(
+              label: AppStrings.callNow,
+              color: Theme.of(context).textTheme.titleLarge!.color,
+            ),
           ),
         ],
       ),

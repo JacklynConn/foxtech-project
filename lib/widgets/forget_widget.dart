@@ -33,6 +33,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                   child: AlertDialog(
                     titlePadding: EdgeInsets.zero,
                     clipBehavior: Clip.antiAliasWithSaveLayer,
+                    backgroundColor: Colors.white,
                     title: Column(
                       children: [
                         Image.asset(
@@ -44,7 +45,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                           label: 'Enter your phone number',
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ],
                     ),
@@ -79,7 +80,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                           label: 'Send',
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ],
@@ -94,7 +95,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
         label: 'Forget Password?',
         fontSize: 15,
         fontWeight: FontWeight.w600,
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
     );
   }

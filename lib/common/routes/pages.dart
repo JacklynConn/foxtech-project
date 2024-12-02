@@ -24,6 +24,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.themeScreen,
       page: () => ThemeScreen(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: AppRoutes.loginScreen,

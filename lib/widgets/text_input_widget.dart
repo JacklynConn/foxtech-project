@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../common/styles/app_theme_color.dart';
+import '../common/themes/theme.dart';
 import '/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 
@@ -50,10 +50,7 @@ class _TextInputWidgetState extends State<TextInputWidget> {
               authController.passwordVisible.value && widget.isPassword,
           decoration: InputDecoration(
             labelText: widget.labelText,
-            labelStyle: const TextStyle(
-              color: Colors.grey,
-              fontFamily: 'Inter-regular',
-            ),
+            labelStyle: const TextStyle(color: Colors.grey),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(
@@ -69,7 +66,7 @@ class _TextInputWidgetState extends State<TextInputWidget> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.primary,
                 width: 2,
               ),
             ),

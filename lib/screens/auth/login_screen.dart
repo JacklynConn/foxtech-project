@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '/common/styles/app_styles.dart';
+import 'package:foxtech_project/common/styles/app_strings.dart';
+import 'package:foxtech_project/common/styles/app_styles.dart';
+import 'package:foxtech_project/widgets/texts/appbar_title_widget.dart';
+import 'package:foxtech_project/widgets/texts/title_widget.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import '../../widgets/forget_widget.dart';
 import '/common/routes/name.dart';
@@ -48,24 +51,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SubtitleWidget(
-                        label: 'Welcome!',
+                        label: AppStrings.welcome,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        fontWeight: FontWeight.w500,
                       ),
                       Text.rich(
                         TextSpan(
                           text: 'to ',
                           style: const TextStyle(
+                            color: Colors.grey,
                             fontSize: 20,
-                            fontWeight: FontWeight.w500,
                           ),
                           children: [
                             TextSpan(
                               text: 'FoxTalk',
                               style: TextStyle(
-                                fontSize: 24,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontWeight: FontWeight.bold,
-                                color: Theme.of(context).primaryColor,
+                                fontSize: 24,
                               ),
                             )
                           ],
@@ -76,8 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: phoneController,
                         labelText: 'Phone Number',
                         keyboardType: TextInputType.phone,
-                        prefixIcon:
-                            const Icon(Icons.phone, color: Colors.grey),
+                        prefixIcon: const Icon(
+                          Icons.phone,
+                          color: Colors.grey,
+                        ),
                         // isRequired: true,
                         onFieldSubmitted: (_) {
                           FocusScope.of(context).nextFocus();
@@ -89,8 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: passwordController,
                         labelText: 'Password',
                         isPassword: true,
-                        prefixIcon:
-                            const Icon(Icons.lock, color: Colors.grey),
+                        prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                       ),
                       const SizedBox(height: 20),
                       GestureDetector(
@@ -104,19 +109,18 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(50),
                             gradient: LinearGradient(
                               colors: [
-                                Theme.of(context).primaryColor,
-                                Theme.of(context).highlightColor,
+                                Theme.of(context).colorScheme.primary,
+                                Theme.of(context).colorScheme.onPrimary,
                               ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          child: Center(
-                            child: Text(
-                              'Login',
-                              style: AppStyles.bold(
-                                  color: Colors.white, size: 20),
-                              textAlign: TextAlign.center,
+                          child: const Center(
+                            child: SubtitleWidget(
+                              label: 'Login',
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
@@ -126,17 +130,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           const SubtitleWidget(
                             label: 'Don\'t have an account?',
-                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            fontSize: 16,
                           ),
                           TextButton(
                             onPressed: () {
                               Get.toNamed(AppRoutes.signUpScreen);
                             },
-                            child: SubtitleWidget(
-                              label: 'Sign Up',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: Theme.of(context).primaryColor,
+                            child: Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ],

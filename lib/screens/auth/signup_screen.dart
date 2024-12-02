@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/screens/auth/verify_code_screen.dart';
-import '/common/styles/app_styles.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import 'package:lottie/lottie.dart';
 import '/common/routes/name.dart';
@@ -136,12 +135,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          child: const Center(
-                            child: SubtitleWidget(
-                              label: 'Sign Up',
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
+                          child:  Center(
+                            child: Text(
+                              'Sign Up',
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                         ),
