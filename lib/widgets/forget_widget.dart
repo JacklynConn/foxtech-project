@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foxtech_project/common/styles/app_strings.dart';
 import '/common/utilities/assets_manager.dart';
 import '../common/routes/name.dart';
 import '/widgets/text_input_widget.dart';
@@ -42,7 +43,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                         ),
                         const SizedBox(height: 10),
                         SubtitleWidget(
-                          label: 'Enter your phone number',
+                          label: AppStrings.enterPhoneNumber,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.primary,
@@ -68,7 +69,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                           'Cancel',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 15,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -78,7 +79,7 @@ class _ForgetWidgetState extends State<ForgetWidget> {
                         },
                         child: SubtitleWidget(
                           label: 'Send',
-                          fontSize: 15,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.primary,
                         ),

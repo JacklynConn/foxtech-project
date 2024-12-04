@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/common/themes/colors.dart';
+import '../../common/styles/app_strings.dart';
 import '/screens/auth/verify_code_screen.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -76,15 +78,16 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      const SubtitleWidget(
-                        label: 'Create an account',
+                      SubtitleWidget(
+                        label: AppStrings.createAccount,
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: TextEditingController(),
-                        labelText: 'Username',
+                        labelText: AppStrings.userName,
                         isPassword: false,
                         keyboardType: TextInputType.name,
                         prefixIcon: const Icon(
@@ -95,7 +98,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: phoneController,
-                        labelText: 'Phone Number',
+                        labelText: AppStrings.phoneNumber,
                         keyboardType: TextInputType.phone,
                         prefixIcon: const Icon(
                           Icons.phone,
@@ -105,7 +108,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: passwordController,
-                        labelText: 'Password',
+                        labelText: AppStrings.password,
                         keyboardType: TextInputType.visiblePassword,
                         isPassword: true,
                         prefixIcon: const Icon(
@@ -128,17 +131,19 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(50),
                             gradient: LinearGradient(
                               colors: [
-                                Theme.of(context).primaryColor,
-                                Theme.of(context).highlightColor,
+                                Theme.of(context).colorScheme.primary,
+                                Theme.of(context).colorScheme.onPrimary,
                               ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          child:  Center(
-                            child: Text(
-                              'Sign Up',
-                              style: Theme.of(context).textTheme.titleLarge,
+                          child: const Center(
+                            child: SubtitleWidget(
+                              label: AppStrings.signUp,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -146,19 +151,20 @@ class _SignupScreenState extends State<SignupScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const SubtitleWidget(
-                            label: 'Already have an account?',
-                            fontSize: 15,
+                          SubtitleWidget(
+                            label: AppStrings.alreadyHaveAccount,
+                            fontSize: 16,
+                            color: lBlack,
                           ),
                           TextButton(
                             onPressed: () {
                               Get.toNamed(AppRoutes.loginScreen);
                             },
                             child: SubtitleWidget(
-                              label: 'Login',
-                              fontSize: 15,
+                                label: AppStrings.login,
+                              fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                           ),
                         ],
@@ -171,7 +177,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       alignment: Alignment.bottomCenter,
                       child: const SubtitleWidget(
                         label:
-                            '@ 2024 FoxTech Development. All rights reserved.',
+                            AppStrings.copyRight,
                         fontSize: 12,
                         color: Colors.grey,
                       ),

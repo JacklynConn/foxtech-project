@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/styles/app_strings.dart';
-import 'package:foxtech_project/common/styles/app_styles.dart';
-import 'package:foxtech_project/widgets/texts/appbar_title_widget.dart';
-import 'package:foxtech_project/widgets/texts/title_widget.dart';
+import 'package:foxtech_project/common/themes/colors.dart';
+import '/common/styles/app_strings.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import '../../widgets/forget_widget.dart';
 import '/common/routes/name.dart';
@@ -58,14 +56,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Text.rich(
                         TextSpan(
-                          text: 'to ',
+                          text: AppStrings.to,
                           style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 20,
                           ),
                           children: [
                             TextSpan(
-                              text: 'FoxTalk',
+                              text: AppStrings.foxTalk,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontWeight: FontWeight.bold,
@@ -78,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: phoneController,
-                        labelText: 'Phone Number',
+                        labelText: AppStrings.phoneNumber,
                         keyboardType: TextInputType.phone,
                         prefixIcon: const Icon(
                           Icons.phone,
@@ -93,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
                       TextInputWidget(
                         controller: passwordController,
-                        labelText: 'Password',
+                        labelText: AppStrings.password,
                         isPassword: true,
                         prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                       ),
@@ -116,11 +114,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               end: Alignment.bottomRight,
                             ),
                           ),
-                          child: const Center(
+                          child: Center(
                             child: SubtitleWidget(
-                              label: 'Login',
+                              label: AppStrings.login,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              color: lWhite,
                             ),
                           ),
                         ),
@@ -129,8 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const SubtitleWidget(
-                            label: 'Don\'t have an account?',
-                            fontWeight: FontWeight.w400,
+                            label: AppStrings.dontHaveAccount,
                             color: Colors.black,
                             fontSize: 16,
                           ),
@@ -139,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Get.toNamed(AppRoutes.signUpScreen);
                             },
                             child: Text(
-                              'Sign Up',
+                              AppStrings.signUp,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.primary,
                                 fontSize: 16,
@@ -156,8 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       alignment: Alignment.bottomCenter,
                       child: const SubtitleWidget(
-                        label:
-                            '@ 2024 FoxTech Development. All rights reserved.',
+                        label: AppStrings.copyRight,
                         fontSize: 12,
                         color: Colors.grey,
                       ),

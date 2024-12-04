@@ -35,51 +35,48 @@ class ThemeScreen extends StatelessWidget {
             ),
             centerTitle: true,
           ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Current Theme: ${themeController.themeMode.value == ThemeMode.dark ? 'Dark' : themeController.themeMode.value == ThemeMode.light ? 'Light' : 'System'}',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: themeController.themeMode.value == ThemeMode.dark
-                        ? Colors.white
-                        : Colors.black,
-                  ),
+          body: Column(
+            children: [
+              Text(
+                'Current Theme: ${themeController.themeMode.value == ThemeMode.dark ? 'Dark' : themeController.themeMode.value == ThemeMode.light ? 'Light' : 'System'}',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: themeController.themeMode.value == ThemeMode.dark
+                      ? Colors.white
+                      : Colors.black,
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: themeController.toggleTheme,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        themeController.themeMode.value == ThemeMode.dark
-                            ? Colors.grey[800]
-                            : Colors.blue,
-                    foregroundColor:
-                        themeController.themeMode.value == ThemeMode.dark
-                            ? Colors.white
-                            : Colors.black,
-                  ),
-                  child: const Text('Toggle Light/Dark'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: themeController.toggleTheme,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      themeController.themeMode.value == ThemeMode.dark
+                          ? Colors.grey[800]
+                          : Colors.blue,
+                  foregroundColor:
+                      themeController.themeMode.value == ThemeMode.dark
+                          ? Colors.white
+                          : Colors.black,
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: themeController.setSystemTheme,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        themeController.themeMode.value == ThemeMode.dark
-                            ? Colors.grey[800]
-                            : Colors.blue,
-                    foregroundColor:
-                        themeController.themeMode.value == ThemeMode.dark
-                            ? Colors.white
-                            : Colors.black,
-                  ),
-                  child: const Text('Use System Theme'),
+                child: const Text('Toggle Light/Dark'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: themeController.setSystemTheme,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      themeController.themeMode.value == ThemeMode.dark
+                          ? Colors.grey[800]
+                          : Colors.blue,
+                  foregroundColor:
+                      themeController.themeMode.value == ThemeMode.dark
+                          ? Colors.white
+                          : Colors.black,
                 ),
-              ],
-            ),
+                child: const Text('Use System Theme'),
+              ),
+            ],
           ),
         ),
       );

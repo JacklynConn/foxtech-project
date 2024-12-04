@@ -137,7 +137,10 @@ class ChatScreen extends StatelessWidget {
                                     backgroundColor:
                                         Theme.of(context).colorScheme.onPrimary,
                                     radius: 10,
-                                    child: const SubtitleWidget(label: '2'),
+                                    child: const SubtitleWidget(
+                                      label: '2',
+                                      fontSize: 14,
+                                    ),
                                   ),
                                 ],
                               ),

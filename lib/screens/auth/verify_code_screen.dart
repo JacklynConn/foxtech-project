@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '/common/themes/colors.dart';
 import '/common/routes/name.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../common/styles/app_strings.dart';
@@ -64,11 +65,10 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
         : Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
-              title: SubtitleWidget(
+              title: const SubtitleWidget(
                 label: 'Verification',
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor,
               ),
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -76,6 +76,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               leading: IconButton(
                 icon: Icon(
                   Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back,
+                  color: lBlack,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -86,12 +87,13 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               children: [
                 const SizedBox(height: 20),
                 const SizedBox(height: 20),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: SubtitleWidget(
-                    label: 'Enter your Verification Code',
+                    label: AppStrings.enterVerificationCode,
                     fontSize: 36,
                     fontWeight: FontWeight.w500,
+                    color: lBlack,
                   ),
                 ),
                 const SizedBox(
@@ -103,9 +105,9 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     length: 6,
                     appContext: context,
                     obscureText: false,
+                    showCursor: false,
                     animationType: AnimationType.fade,
-                    keyboardType: TextInputType.phone,
-
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.deny(
                         RegExp(r'\D'),
@@ -125,10 +127,10 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                       inactiveBorderWidth: 11,
                       inactiveFillColor: Colors.white,
                       inactiveColor: Colors.grey,
-                      activeFillColor: Theme.of(context).primaryColor,
-                      selectedColor: Theme.of(context).primaryColor,
+                      activeFillColor: Theme.of(context).colorScheme.primary,
+                      selectedColor: Theme.of(context).colorScheme.primary,
                       selectedFillColor: Colors.white,
-                      activeColor: Theme.of(context).primaryColor,
+                      activeColor: Theme.of(context).colorScheme.primary,
                     ),
                     animationDuration: const Duration(milliseconds: 300),
                     backgroundColor: Colors.transparent,
@@ -169,7 +171,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                             vertical: 10,
                           ),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(50),
                           ),
                           child: SubtitleWidget(
@@ -184,9 +186,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: RichText(
@@ -200,7 +200,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                         TextSpan(
                           text: '+85593973138',
                           style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -230,11 +230,12 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                         width: 120,
                         height: 50,
                         decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              bottomLeft: Radius.circular(30),
-                            )),
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            bottomLeft: Radius.circular(30),
+                          ),
+                        ),
                         child: Obx(
                           () => authController.isLoading.value
                               ? const Center(

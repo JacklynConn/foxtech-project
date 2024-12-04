@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/utilities/assets_manager.dart';
+import '/common/utilities/assets_manager.dart';
 import '../common/routes/name.dart';
 import '/controllers/theme_controller.dart';
 import '/widgets/texts/subtitle_widget.dart';
@@ -8,7 +8,6 @@ import '../common/themes/colors.dart';
 import '../widgets/texts/title_widget.dart';
 import '/widgets/texts/appbar_title_widget.dart';
 import 'package:get/get.dart';
-import 'inner_screens/theme_screen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -18,13 +17,16 @@ class MoreScreen extends StatefulWidget {
 }
 
 class _MoreScreenState extends State<MoreScreen> {
-  final ThemeController _themeController = Get.put(ThemeController());
+  final ThemeController _themeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appBar,
-      body: _buildMoreList,
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: Scaffold(
+        appBar: _appBar,
+        body: _buildMoreList,
+      ),
     );
   }
 
@@ -126,7 +128,7 @@ class _MoreScreenState extends State<MoreScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const SubtitleWidget(
-                                    label: AppStrings.themes,
+                                    label: AppStrings.theme,
                                   ),
                                   Obx(
                                     () => SubtitleWidget(
@@ -146,19 +148,20 @@ class _MoreScreenState extends State<MoreScreen> {
                             ],
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed(AppRoutes.themeScreen);
+                        Switch(
+                          value: _themeController.themeMode.value ==
+                              ThemeMode.dark,
+                          onChanged: (value) {
+                            _themeController.toggleTheme();
                           },
-                          child: Icon(
-                            Icons.arrow_forward_ios,
-                            color: lGrey,
-                          ),
+                          activeColor: Theme.of(context).colorScheme.primary,
+                          focusNode: FocusNode(),
                         ),
                       ],
                     ),
                   ),
                 ),
+
                 Divider(
                   color: Theme.of(context).colorScheme.secondary,
                   thickness: 2,
