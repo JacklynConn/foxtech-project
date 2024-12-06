@@ -19,7 +19,7 @@ class _RootScreenState extends State<RootScreen> {
     return GetBuilder<RootController>(
       builder: (_) {
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: IndexedStack(
             index: _rootController.currentIndex,
             children: _rootController.lstScreens,
@@ -44,104 +44,116 @@ class _RootScreenState extends State<RootScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      _rootController.bottomNavigationTap(0);
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.person,
-                          color: _rootController.currentIndex == 0
-                              ? Theme.of(context).colorScheme.primary
-                              : Colors.grey,
-                        ),
-                        Text(
-                          AppStrings.friend,
-                          style: TextStyle(
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        _rootController.bottomNavigationTap(0);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.person,
                             color: _rootController.currentIndex == 0
                                 ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
-                            fontSize: 12,
                           ),
-                        ),
-                      ],
+                          Text(
+                            AppStrings.friend,
+                            style: TextStyle(
+                              color: _rootController.currentIndex == 0
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      _rootController.bottomNavigationTap(1);
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          CupertinoIcons.chat_bubble,
-                          color: _rootController.currentIndex == 1
-                              ? Theme.of(context).colorScheme.primary
-                              : Colors.grey,
-                        ),
-                        Text(
-                          AppStrings.chat,
-                          style: TextStyle(
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        _rootController.bottomNavigationTap(1);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            CupertinoIcons.chat_bubble,
                             color: _rootController.currentIndex == 1
                                 ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
-                            fontSize: 12,
                           ),
-                        ),
-                      ],
+                          Text(
+                            AppStrings.chat,
+                            style: TextStyle(
+                              color: _rootController.currentIndex == 1
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      _rootController.bottomNavigationTap(2);
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.call,
-                          color: _rootController.currentIndex == 2
-                              ? Theme.of(context).colorScheme.primary
-                              : Colors.grey,
-                        ),
-                        Text(
-                          AppStrings.call,
-                          style: TextStyle(
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        _rootController.bottomNavigationTap(2);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.call,
                             color: _rootController.currentIndex == 2
                                 ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
-                            fontSize: 12,
                           ),
-                        ),
-                      ],
+                          Text(
+                            AppStrings.call,
+                            style: TextStyle(
+                              color: _rootController.currentIndex == 2
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      _rootController.bottomNavigationTap(3);
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.more_horiz,
-                          color: _rootController.currentIndex == 3
-                              ? Theme.of(context).colorScheme.primary
-                              : Colors.grey,
-                        ),
-                        Text(
-                          AppStrings.more,
-                          style: TextStyle(
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: () {
+                        _rootController.bottomNavigationTap(3);
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.more_horiz,
                             color: _rootController.currentIndex == 3
                                 ? Theme.of(context).colorScheme.primary
                                 : Colors.grey,
-                            fontSize: 12,
                           ),
-                        ),
-                      ],
+                          Text(
+                            AppStrings.more,
+                            style: TextStyle(
+                              color: _rootController.currentIndex == 3
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

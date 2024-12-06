@@ -248,7 +248,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       SubtitleWidget(
-                                        label: 'Verify',
+                                        label: AppStrings.verify,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white,

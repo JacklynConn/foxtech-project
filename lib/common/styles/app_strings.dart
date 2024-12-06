@@ -41,6 +41,7 @@ class AppStrings {
   static const String createAccount = 'Create an account';
   static const String copyRight =
       '@ 2024 FoxTech Development. All rights reserved.';
+  static const String verify = 'Verify';
   static const String enterPhoneNumber = 'Enter your phone number';
   static const String enterVerificationCode = 'Enter your Verification Code';
 }

@@ -161,7 +161,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               Get.toNamed(AppRoutes.loginScreen);
                             },
                             child: SubtitleWidget(
-                                label: AppStrings.login,
+                              label: AppStrings.login,
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).colorScheme.primary,
@@ -173,11 +173,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const Spacer(),
                   Expanded(
+                    flex: 1,
                     child: Container(
                       alignment: Alignment.bottomCenter,
                       child: const SubtitleWidget(
-                        label:
-                            AppStrings.copyRight,
+                        label: AppStrings.copyRight,
                         fontSize: 12,
                         color: Colors.grey,
                       ),

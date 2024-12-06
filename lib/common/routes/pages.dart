@@ -1,3 +1,5 @@
+import '../../models/chat_model.dart';
+import '/screens/inner_screens/message_screen/message_screen.dart';
 import '/screens/auth/forget_verify_screen.dart';
 import '/screens/auth/reset_password_screen.dart';
 import '/screens/auth/verify_code_screen.dart';
@@ -49,6 +51,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.resetPasswordScreen,
       page: () => const ResetPasswordScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.messageScreen,
+      page: () => MessageScreen(),
       transition: Transition.rightToLeft,
     ),
   ];

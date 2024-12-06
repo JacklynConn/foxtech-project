@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxtech_project/common/themes/colors.dart';
+import '/common/themes/colors.dart';
 import '/common/styles/app_strings.dart';
 import '/widgets/texts/subtitle_widget.dart';
 import '../../widgets/forget_widget.dart';
@@ -151,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const Spacer(),
                   Expanded(
+                    flex: 1,
                     child: Container(
                       alignment: Alignment.bottomCenter,
                       child: const SubtitleWidget(
